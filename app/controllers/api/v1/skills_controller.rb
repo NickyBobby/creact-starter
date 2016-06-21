@@ -1,6 +1,6 @@
 class Api::V1::SkillsController < Api::V1::BaseController
   def index
-    respond_with Skill.all
+    respond_with Skill.order('created_at DESC').all
   end
 
   def create
