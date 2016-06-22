@@ -43,8 +43,10 @@ var Body = React.createClass({
   },
 
   updateSkills(skill) {
-    var skills = this.state.skills.filter((s) => { return s.id != skill.id });
-    skills.unshift(skill);
+    var skills = this.state.skills;
+    var index = skills.map(function(s) { return s.id; }).indexOf(skill.id);
+
+    skills.splice(index, 1, skill);
 
     this.setState({ skills: skills });
   },
